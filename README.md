@@ -6,7 +6,7 @@
 
 <sup>1</sup>Harbin Institute of Technology <sup>2</sup>Beijing Normal University <sup>3</sup>Tsinghua University
 
-### [Projectpage] · [Paper] · [Video]
+### [Projectpage](https://huliangxiao.github.io/GaussianAvatar) · [Paper](https://arxiv.org/abs/2312.02134) · [Video](https://www.youtube.com/watch?v=a4g8Z9nCF-k)
 </div>
 
 ***Abstract**: We present GaussianAvatar, an efficient approach to creating realistic human avatars with dynamic 3D appearances from a single video. We start by introducing animatable 3D Gaussians to explicitly represent humans in various poses and clothing styles. Such an explicit and animatable representation can fuse 3D appearances more efficiently and consistently from 2D observations. Our representation is further augmented with dynamic properties to support pose-dependent appearance modeling, where a dynamic appearance network along with an optimizable feature tensor is designed to learn the motion-to-appearance mapping. Moreover, by leveraging the differentiable motion condition, our method enables a joint optimization of motions and appearances during avatar modeling, which helps to tackle the long-standing issue of inaccurate motion estimation in monocular settings. The efficacy of GaussianAvatar is validated on both the public dataset and our collected dataset, demonstrating its superior performances in terms of appearance quality and rendering efficiency.*
