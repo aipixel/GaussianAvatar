@@ -1,4 +1,4 @@
-name: gaussian—avatar
+name: gs-avatar
 channels:
   - pytorch
   - nvidia
