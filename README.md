@@ -12,6 +12,7 @@
 
 ## :mega: Updates
 [7/2/2024] The scripts for your own video are released.
+
 [23/1/2024] Training and inference codes for People Snapshot are released.
 
 ## Introduction
