@@ -134,7 +134,7 @@ class OptimizationParams(ParamGroup):
         self.lambda_pose = 10
         self.lambda_rgl = 1e1
         self.log_iter = 2000
-        self.lpips_start_iter = 150
+        self.lpips_start_iter = 30
         self.pose_op_start_iter = 1800  #define when to start pose optimization, >epochs means no optimization
         self.lr_net = 3e-3
         self.lr_geomfeat = 5e-4

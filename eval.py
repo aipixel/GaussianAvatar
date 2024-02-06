@@ -61,7 +61,11 @@ def render_sets(model, net, opt, epoch:int):
             batch_data = to_cuda(batch_data, device=torch.device('cuda:0'))
             gt_image = batch_data['original_image']
 
-            image, = avatarmodel.render_free_stage1(batch_data, 59400)
+            if model.train_stage == 1:
+                image, = avatarmodel.render_free_stage1(batch_data, 59400)
+            else:
+                image, = avatarmodel.render_free_stage2(batch_data, 59400)
+
             results.append(evaluator(image.unsqueeze(0), gt_image))
               
             torchvision.utils.save_image(gt_image, os.path.join(gt_path, '{0:05d}'.format(idx) + ".png"))

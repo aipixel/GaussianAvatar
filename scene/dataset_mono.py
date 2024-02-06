@@ -114,14 +114,14 @@ class MonoDataset_train(Dataset):
 
         self.no_mask = bool(self.dataset_parms.no_mask)
 
-        # if dataset_parms.train_stage == 1:
-        #     print('loading smpl data ', join(self.data_folder, 'smpl_parms.pth'))
-        #     self.smpl_data = torch.load(join(self.data_folder, 'smpl_parms.pth'))
-        # else:
-        #     print('loading smpl data ', join(self.data_folder, 'smpl_parms_pred.pth'))
-        #     self.smpl_data = torch.load(join(self.data_folder, 'smpl_parms_pred.pth'))
-        print('loading smpl data ', join(self.data_folder, 'smpl_parms.pth'))
-        self.smpl_data = torch.load(join(self.data_folder, 'smpl_parms.pth'))
+        if dataset_parms.train_stage == 1:
+            print('loading smpl data ', join(self.data_folder, 'smpl_parms.pth'))
+            self.smpl_data = torch.load(join(self.data_folder, 'smpl_parms.pth'))
+        else:
+            print('loading smpl data ', join(self.data_folder, 'smpl_parms_pred.pth'))
+            self.smpl_data = torch.load(join(self.data_folder, 'smpl_parms_pred.pth'))
+        # print('loading smpl data ', join(self.data_folder, 'smpl_parms.pth'))
+        # self.smpl_data = torch.load(join(self.data_folder, 'smpl_parms.pth'))
 
         self.data_length = len(os.listdir(join(self.data_folder, 'images')))
         

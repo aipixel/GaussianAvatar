@@ -177,6 +177,9 @@ class AvatarModel:
             torch.save(
                 {
                 "pose_encoder": self.pose_encoder.state_dict(),
+                "geo_feature": self.geo_feature,
+                "pose": self.pose.state_dict(),
+                "transl": self.transl.state_dict(),
                 "net": self.net.state_dict(),
                 "optimizer": self.optimizer.state_dict(),
                 "scheduler": self.scheduler.state_dict()}, 
@@ -202,6 +205,35 @@ class AvatarModel:
             self.optimizer.load_state_dict(saved_model_state["optimizer"])
         if self.scheduler is not None:
             self.scheduler.load_state_dict(saved_model_state["scheduler"])
+
+
+    def stage_load(self, ckpt_path):
+
+        net_save_path = ckpt_path
+        print('load pth: ', os.path.join(net_save_path, "net.pth"))
+        saved_model_state = torch.load(
+            os.path.join(net_save_path, "net.pth"))
+        
+        self.net.load_state_dict(saved_model_state["net"], strict=False)
+        self.pose.load_state_dict(saved_model_state["pose"], strict=False)
+        self.transl.load_state_dict(saved_model_state["transl"], strict=False)
+        # if self.train_mode == 0:
+        self.geo_feature.data[...] = saved_model_state["geo_feature"].data[...]
+
+    def stage2_load(self, epoch):
+    
+        pose_encoder_path = os.path.join(self.model_parms.project_path, self.model_path, "net/iteration_{}".format(epoch))
+
+        pose_encoder_state = torch.load(
+            os.path.join(pose_encoder_path, "pose_encoder.pth"))
+        print('load pth: ', os.path.join(pose_encoder_path, "pose_encoder.pth"))
+
+        self.net.load_state_dict(pose_encoder_state["net"], strict=False)
+        self.pose.load_state_dict(pose_encoder_state["pose"], strict=False)
+        self.transl.load_state_dict(pose_encoder_state["transl"], strict=False)
+        # if self.train_mode == 0:
+        self.geo_feature.data[...] = pose_encoder_state["geo_feature"].data[...]
+        self.pose_encoder.load_state_dict(pose_encoder_state["pose_encoder"], strict=False)
 
     def getTrainDataloader(self,):
         return torch.utils.data.DataLoader(self.train_dataset,

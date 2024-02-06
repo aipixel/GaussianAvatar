@@ -70,10 +70,56 @@ python eval.py -s $gs_data_path/m4c_processed -m output/m4c_processed --epoch 20
 python render_novel_pose.py -s $gs_data_path/m4c_processed -m output/m4c_processed --epoch 200
 ```
 
+## Run on Your Own Video
+
+### Preprocessing
+
+- masks and poses: use the bash script `scripts/custom/process-sequence.sh` in [InstantAvatar](https://github.com/tijiang13/InstantAvatar). The data folder should have the followings:
+```
+smpl_files
+ ├── images
+ ├── masks
+ ├── cameras.npz
+ └── poses_optimized.npz
+```
+- data format: we provide a script to convert the pose format of romp to ours (remember to change the `path` in L50 and L51):
+```
+cd scripts & python sample_romp2gsavatar.py
+```
+- position map of the canonical pose: (remember to change the corresponding `path`)
+```
+python gen_pose_map_cano_smpl.py
+```
+
+### Training for Stage 1
+
+```
+cd .. &  python train.py -s $path_to_data/$subject -m output/{$subject}_stage1 --train_stage 1 --pose_op_start_iter 10
+```
+
+### Training for Stage 2
+
+- export predicted smpl:
+```
+cd scripts & python export_stage_1_smpl.py
+```
+- visualize the optimized smpl (optional):
+```
+python render_pred_smpl.py
+```
+- generate the predicted position map:
+```
+python gen_pose_map_our_smpl.py
+```
+- start to train
+```
+cd .. &  python train.py -s $path_to_data/$subject -m output/{$subject}_stage2 --train_stage 2 --stage1_out_path $path_to_stage1_net_save_path
+```
+
 ## Todo
 
 - [x] Release the reorganized code and data.
-- [ ] Provide the scripts for your own video.
+- [x] Provide the scripts for your own video.
 - [ ] Provide the code for real-time annimation. 
 
 ## Citation
