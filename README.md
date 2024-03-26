@@ -2,9 +2,11 @@
 
 # <b>GaussianAvatar</b>: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians
 
-[Liangxiao Hu](https://huliangxiao.github.io/)<sup>1</sup>, [Hongwen Zhang](https://zhanghongwen.cn/)<sup>2</sup>, [Yuxiang Zhang](https://zhangyux15.github.io/)<sup>3</sup>, [Boyao Zhou](https://morpheo.inrialpes.fr/people/zhou/)<sup>3</sup>, [Boning Liu](https://liuboning2.github.io/)<sup>3</sup>, [Shengping Zhang](http://homepage.hit.edu.cn/zhangshengping)<sup>1</sup>, [Liqiang Nie](https://liqiangnie.github.io/)<sup>1</sup>,
+[Liangxiao Hu](https://huliangxiao.github.io/)<sup>1,&dagger;</sup>, [Hongwen Zhang](https://zhanghongwen.cn/)<sup>2</sup>, [Yuxiang Zhang](https://zhangyux15.github.io/)<sup>3</sup>, [Boyao Zhou](https://morpheo.inrialpes.fr/people/zhou/)<sup>3</sup>, [Boning Liu](https://liuboning2.github.io/)<sup>3</sup>, [Shengping Zhang](http://homepage.hit.edu.cn/zhangshengping)<sup>1,*</sup>, [Liqiang Nie](https://liqiangnie.github.io/)<sup>1</sup>,
 
 <sup>1</sup>Harbin Institute of Technology <sup>2</sup>Beijing Normal University <sup>3</sup>Tsinghua University
+
+<sup>*</sup>Corresponding author <sup>&nbsp;&nbsp;&nbsp;&dagger;</sup>Work done during an internship at Tsinghua University
 
 ### [Projectpage](https://huliangxiao.github.io/GaussianAvatar) · [Paper](https://arxiv.org/abs/2312.02134) · [Video](https://www.youtube.com/watch?v=a4g8Z9nCF-k)
 
@@ -130,11 +132,11 @@ cd .. &  python train.py -s $path_to_data/$subject -m output/{$subject}_stage2 -
 
 If you find this code useful for your research, please consider citing:
 ```
-@article{hu2023gaussianavatar,
-  title={GaussianAvatar: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians},
-  author={Hu, Liangxiao and Zhang, Hongwen and Zhang, Yuxiang and Zhou, Boyao and Liu, Boning and Zhang, Shengping and Nie, Liqiang},
-  journal={arXiv preprint arXiv:2312.02134},
-  year={2023}
+@inproceedings{hu2024gaussianavatar,
+        title={GaussianAvatar: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians},
+        author={Hu, Liangxiao and Zhang, Hongwen and Zhang, Yuxiang and Zhou, Boyao and Liu, Boning and Zhang, Shengping and Nie, Liqiang},
+        booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+        year={2024}
 }
 ```
 
