@@ -131,7 +131,7 @@ cd .. &  python train.py -s $path_to_data/$subject -m output/{$subject}_stage2 -
 ## Citation
 
 If you find this code useful for your research, please consider citing:
-```
+```bibtex
 @inproceedings{hu2024gaussianavatar,
         title={GaussianAvatar: Towards Realistic Human Avatar Modeling from a Single Video via Animatable 3D Gaussians},
         author={Hu, Liangxiao and Zhang, Hongwen and Zhang, Yuxiang and Zhou, Boyao and Liu, Boning and Zhang, Shengping and Nie, Liqiang},
